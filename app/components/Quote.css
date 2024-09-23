@@ -1,0 +1,20 @@
+.quote {
+  font-size: 3em;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.quote.active {
+  opacity: 1;
+}
+
+.author {
+  position: relative;
+  font-size: 2.2em;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.author.active {
+  opacity: 1;
+}

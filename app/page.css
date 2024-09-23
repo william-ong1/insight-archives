@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+  font-size: 16px;
+}
+
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -15,19 +19,19 @@
   align-items: center;
   font-family: 'Cinzel', sans-serif;
   font-weight: bold;
-  font-size: 2.5em;
+  font-size: 3.5em;
   line-height: 0.8em;
   margin-top: 1rem;
 }
 
 .insight {
   position: relative;
-  right: 3rem;
+  right: 4rem;
 }
 
 .archives {
   position: relative;
-  left: 3rem;
+  left: 4rem;
 }
 
 .content {
@@ -40,27 +44,59 @@
   font-family: 'Libre Baskerville', sans-serif;
   margin-left: 20rem;
   margin-right: 20rem;
-  gap: 1.5rem;
-}
-
-.quote {
-  font-size: 2.5em;
-}
-
-.author {
-  position: relative;
-  font-size: 2em;
 }
 
 .footer {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
-  padding: 1rem;
-  font-size: 1em;
+  padding-bottom: 10rem;
+  font-size: 1.5em;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
   justify-content: center;
   cursor: default;
 }
+
+/* Extra Small Devices (phones, 0px and up) */
+@media screen and (max-width: 576px), (max-height: 800px) {
+  :root {
+    font-size: 10px;
+  }
+}
+
+/* Small Devices (portrait tablets, 576px and up) */
+@media screen and (min-width: 577px) and (max-width: 768px), (min-height: 801px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+/* Medium Devices (landscape tablets, 768px and up) */
+@media screen and (min-width: 769px) and (max-width: 992px), (min-height: 801px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media screen and (min-width: 993px) and (max-width: 1200px), (min-height: 801px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1201px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
+/* Orientation adjustments for landscape */
+@media screen and (orientation: landscape) {
+  .footer {
+    padding-bottom: 2rem;
+  }
+}
+

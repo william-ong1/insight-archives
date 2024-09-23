@@ -1,9 +1,6 @@
 import './page.css';
-import SubscribeButton from './SubscribeButton';
-
-type QuoteRecord = {quote: string, author: string};
-
-let quoteRec = {quote: "Life is really simple, but we insist on making it complicated.", author: "Confucius"};
+import Footer from './components/footer/Footer';
+import Quote from './components/Quote';
 
 export default function Home() {
   return (
@@ -14,16 +11,11 @@ export default function Home() {
       </header>
       
       <main className="content">
-        <div className="quote"> { "\"" + quoteRec.quote + "\"" } </div>
-        <div className="author"> {"- " + quoteRec.author} </div>
+        <Quote/>
       </main>
 
       <footer className="footer">
-        <SubscribeButton/>
-        |
-        <button> Subscribe </button>
-        |
-        <button> View Archive </button>
+        <Footer/>
       </footer>
     </div>
   );

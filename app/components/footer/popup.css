@@ -1,0 +1,76 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3rem;
+  position: relative;
+  background: #2e2d2d;
+  border-radius: 35px;
+  height: 25em;
+  width: 35em;
+}
+
+.description {
+  font-family: 'Libre Baskerville', sans-serif;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Archive Popup styles */
+.custom-base-class {
+  color: black;
+}
+
+.custom-cell-class {
+  color: black;
+}
+
+.custom-cell-button-class {
+  color: black;
+}
+
+/* Subscribe Popup styles */
+.email-box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: -10rem;
+}
+
+
+.right-arrow {
+  position: absolute;
+  right: 1rem;
+  color: black;
+}

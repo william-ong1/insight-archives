@@ -1,0 +1,209 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./app/page.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  font-size: 16px;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Cinzel', sans-serif;
+  font-weight: bold;
+  font-size: 3.5em;
+  line-height: 0.8em;
+  margin-top: 1rem;
+}
+
+.insight {
+  position: relative;
+  right: 4rem;
+}
+
+.archives {
+  position: relative;
+  left: 4rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Libre Baskerville', sans-serif;
+  margin-left: 20rem;
+  margin-right: 20rem;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding-bottom: 10rem;
+  font-size: 1.5em;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  justify-content: center;
+  cursor: default;
+}
+
+/* Extra Small Devices (phones, 0px and up) */
+@media screen and (max-width: 576px), (max-height: 800px) {
+  :root {
+    font-size: 10px;
+  }
+}
+
+/* Small Devices (portrait tablets, 576px and up) */
+@media screen and (min-width: 577px) and (max-width: 768px), (min-height: 801px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+/* Medium Devices (landscape tablets, 768px and up) */
+@media screen and (min-width: 769px) and (max-width: 992px), (min-height: 801px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media screen and (min-width: 993px) and (max-width: 1200px), (min-height: 801px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1201px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
+/* Orientation adjustments for landscape */
+@media screen and (orientation: landscape) {
+  .footer {
+    padding-bottom: 2rem;
+  }
+}
+
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./app/components/footer/popup.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3rem;
+  position: relative;
+  background: #2e2d2d;
+  border-radius: 35px;
+  height: 25em;
+  width: 35em;
+}
+
+.description {
+  font-family: 'Libre Baskerville', sans-serif;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Archive Popup styles */
+.custom-base-class {
+  color: black;
+}
+
+.custom-cell-class {
+  color: black;
+}
+
+.custom-cell-button-class {
+  color: black;
+}
+
+/* Subscribe Popup styles */
+.email-box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: -10rem;
+}
+
+
+.right-arrow {
+  position: absolute;
+  right: 1rem;
+  color: black;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./app/components/Quote.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.quote {
+  font-size: 3em;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.quote.active {
+  opacity: 1;
+}
+
+.author {
+  position: relative;
+  font-size: 2.2em;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.author.active {
+  opacity: 1;
+}
