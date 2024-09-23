@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-import './Quote.css';
+import './quote.css';
 
 type QuoteRecord = {quote: string, author: string};
 

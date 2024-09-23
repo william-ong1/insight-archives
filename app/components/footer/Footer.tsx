@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useState } from 'react';
-import SubscribePopup from './SubscribePopup';
-import ArchivePopup from './ArchivePopup';
+import SubscribePopup from './subscribe-popup';
+import ArchivePopup from './archive-popup';
 
 const Footer = (): JSX.Element => {
 

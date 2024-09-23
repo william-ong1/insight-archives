@@ -1,6 +1,6 @@
 import './page.css';
-import Footer from './components/footer/Footer';
-import Quote from './components/Quote';
+import Footer from './components/footer/footer';
+import Quote from './components/quote';
 
 export default function Home() {
   return (
