@@ -11,6 +11,7 @@ export const dateToString = (date: CalendarDate): string => {
   return `${year}-${month}-${day}`;
 };
 
+
 // TODO: function comment
 export const getQueryDate = (): string => {
   const searchParams = useSearchParams();

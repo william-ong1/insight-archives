@@ -2,22 +2,16 @@
 
 import React from "react";
 import { getQueryDate } from "../utilities";
+import data from '../../data/data.json';
 import './quote.css';
 
-type QuoteRecord = {quote: string, author: string};
+interface Quote {
+  date: string;
+  quote: string;
+  author: string;
+}
 
-const dateToQuoteMap: Map<String, QuoteRecord> = new Map<String, QuoteRecord>([
-  ["2024-09-17", { quote: "We are all in the gutter, but some of us are looking at the stars.", author: "Oscar Wilde" }],
-  ["2024-09-18", { quote: "The wound is the place where the Light enters you.", author: "Rumi" }],
-  ["2024-09-19", { quote: "Life shrinks or expands in proportion to one’s courage.", author: "Anaïs Nin" }],
-  ["2024-09-20", { quote: "The only journey is the one within.", author: "Rainer Maria Rilke" }],
-  ["2024-09-21", { quote: "The universe is under no obligation to make sense to you.", author: "Neil deGrasse Tyson" }],
-  ["2024-09-22", { quote: "A ship in harbor is safe, but that is not what ships are built for.", author: "John A. Shedd" }],
-  ["2024-09-23", { quote: "To live is the rarest thing in the world. Most people exist, that is all.", author: "Oscar Wilde" }],
-  ["2024-09-24", { quote: "You must do the things you think you cannot do.", author: "Eleanor Roosevelt" }]
-]);
-
-let quoteRec: QuoteRecord = {quote: "", author: ""};
+let quoteRec: Quote = {date: "", quote: "", author: ""};
 
 const delay = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms));
 const quote_delay = 35;
@@ -53,14 +47,17 @@ const displayQuote = async () => {
 const Quote = () => {
   
   const hasRendered = React.useRef(false);
-
-  quoteRec = dateToQuoteMap.get(getQueryDate()) ?? {quote: "", author: ""};
+  const query_date = getQueryDate();
 
   React.useEffect(() => {
     if (hasRendered.current) {
       return;
     }
     hasRendered.current = true;
+
+    const quote_data = data.filter(item => item.date === query_date);
+    quoteRec = {date: quote_data[0].date, quote: quote_data[0].quote, author: quote_data[0].author};
+
     displayQuote();
   });
 
@@ -71,5 +68,6 @@ const Quote = () => {
     </div>
   )
 };
+
 
 export default Quote;
