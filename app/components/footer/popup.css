@@ -11,7 +11,7 @@
 }
 
 .popup {
-  padding: 5rem;
+  padding: 4rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -47,16 +47,35 @@
 }
 
 /* Archive Popup styles */
-.custom-base-class {
-  color: black;
+.archive-popup {
+  align-items: center;
+  justify-content: center;
 }
 
-.custom-cell-class {
-  color: black;
+.custom-calendar {
+  font-family: 'Cinzel', sans-serif;
+  border-radius: 35px;
 }
 
-.custom-cell-button-class {
-  color: black;
+.calendar-width {
+  width: 18em;
+}
+
+.time-travel-button {
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 15px 30px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  width: auto;
+  font-family: 'Cinzel', sans-serif;
+}
+
+.time-travel-button:hover {
+  transform: scale(1.1);
 }
 
 /* Subscribe Popup styles */
@@ -67,7 +86,6 @@
   align-items: center;
   gap: -10rem;
 }
-
 
 .right-arrow {
   position: absolute;

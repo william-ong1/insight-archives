@@ -1,20 +1,15 @@
-.quote {
+.quote, .author {
   font-size: 3em;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  text-shadow: 3px 3px 6px rgba(163, 131, 131, 0.8);
 }
 
-.quote.active {
+.quote.active, .author.active {
   opacity: 1;
 }
 
 .author {
-  position: relative;
   font-size: 2.2em;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.author.active {
-  opacity: 1;
+  position: relative;
 }
