@@ -1,6 +1,7 @@
 import './page.css';
 import Footer from './components/footer/footer';
 import Quote from './components/quote';
+import { Suspense } from 'react';
 
 export default function Home() {
   return (
@@ -11,11 +12,15 @@ export default function Home() {
       </header>
       
       <main className="content">
-        <Quote/>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Quote/>
+        </Suspense>
       </main>
 
       <footer className="footer">
-        <Footer/>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Footer />
+        </Suspense>
       </footer>
     </div>
   );

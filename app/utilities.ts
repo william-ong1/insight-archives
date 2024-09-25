@@ -1,3 +1,5 @@
+'use client'
+
 import { CalendarDate } from "@nextui-org/react";
 import { useSearchParams } from "next/navigation";
 import { today, getLocalTimeZone } from '@internationalized/date';
