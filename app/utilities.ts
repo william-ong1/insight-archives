@@ -13,7 +13,7 @@ export const dateToString = (date: CalendarDate): string => {
 
 
 // TODO: function comment
-export const getQueryDate = (): string => {
+export const useQueryDate = (): string => {
   const searchParams = useSearchParams();
   const date_query = searchParams.get('date');
   if (date_query) {

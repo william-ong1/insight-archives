@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import { Calendar, CalendarDate, select, user } from "@nextui-org/react";
 import { parseDate, today, getLocalTimeZone } from '@internationalized/date';
-import { dateToString, getQueryDate } from '@/app/utilities';
+import { dateToString, useQueryDate } from '@/app/utilities';
 import closeIcon from '../../images/close-icon.svg';
 import './popup.css';
 
@@ -14,7 +14,7 @@ interface ArchivePopupProps {
 
 const ArchivePopup: React.FC<ArchivePopupProps> = ({ onClose }): JSX.Element => {
 
-  const query_date: string = getQueryDate();
+  const query_date: string = useQueryDate();
 
   const [selectedDate, setSelectedDate] = useState<CalendarDate>(parseDate(query_date));
 

@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-import { getQueryDate } from "../utilities";
+import { useQueryDate } from "../utilities";
 import data from '../../data/data.json';
 import './quote.css';
 
@@ -47,7 +47,7 @@ const displayQuote = async () => {
 const Quote = () => {
   
   const hasRendered = React.useRef(false);
-  const query_date = getQueryDate();
+  const query_date = useQueryDate();
 
   React.useEffect(() => {
     if (hasRendered.current) {
