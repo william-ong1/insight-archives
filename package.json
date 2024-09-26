@@ -9,17 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.19.0",
     "@internationalized/date": "^3.5.5",
     "@nextui-org/input": "^2.2.5",
     "@nextui-org/react": "^2.4.8",
     "@nextui-org/system": "^2.2.6",
     "@nextui-org/theme": "^2.2.11",
+    "@octokit/rest": "^21.0.2",
+    "dotenv": "^16.4.5",
     "framer-motion": "^11.5.6",
     "mongodb": "^6.9.0",
     "next": "14.2.13",
     "react": "^18",
-    "react-dom": "^18",
-    "simple-git": "^3.27.0"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
