@@ -63,7 +63,7 @@ async function updateQuoteFile() {
       owner,
       repo,
       path,
-      message: 'Append new quote to file!!',
+      message: 'Updated daily quote',
       content: Buffer.from(updatedContent).toString('base64'),
       sha: existingFile.sha,
       branch: branch
