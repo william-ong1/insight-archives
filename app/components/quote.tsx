@@ -1,8 +1,8 @@
 'use client'
 
 import React from "react";
-import { useQueryDate } from "../utilities";
-import data from '../../data/data.json';
+import { useQueryDate } from '@/app/utils/utilities';
+import data from '../../data/quotes.json';
 import './quote.css';
 
 // Function to delay code execution.

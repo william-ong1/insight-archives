@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import { Calendar, CalendarDate } from "@nextui-org/react";
 import { parseDate, today, getLocalTimeZone } from '@internationalized/date';
-import { dateToString, useQueryDate } from '@/app/utilities';
+import { dateToString, useQueryDate } from '@/app/utils/utilities';
 import closeIcon from '../../images/close-icon.svg';
 import './popup.css';
 
