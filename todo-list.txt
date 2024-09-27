@@ -3,11 +3,6 @@ Subscribe Popup:
   2. email subscription service
       a. unsubscribe service
 
-Archive Popup:
-  1. center calendar
-  2. change color of calendar
-  3. time travel button
-
 
 Main:
   1. daily updated quotes using gemini api

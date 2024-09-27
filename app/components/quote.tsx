@@ -5,49 +5,45 @@ import { useQueryDate } from "../utilities";
 import data from '../../data/data.json';
 import './quote.css';
 
-interface Quote {
-  date: string;
-  quote: string;
-  author: string;
-}
-
-let quoteRec: Quote = {date: "", quote: "", author: ""};
-
+// Function to delay code execution.
 const delay = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms));
-const quote_delay = 35;
-const author_delay = 50;
 
-const displayQuote = async () => {
-  const quote = document.getElementById("quote");
-  const author = document.getElementById("author");
+// Delays for typewriter effect.
+const quote_delay: number = 35;
+const author_delay: number = 50;
 
-  if (quote) {
-    quote.classList.add("active");
-    quote.textContent = "\"";
+// Displays the quote and author with a typewriter effect.
+const displayQuote = async (quote: string, author: string) => {
+  const quote_elem = document.getElementById("quote");
+  const author_elem = document.getElementById("author");
 
-    for (const letter of quoteRec.quote) {
+  if (quote_elem) {
+    quote_elem.classList.add("active");
+    quote_elem.textContent = "\"";
+
+    for (const letter of quote) {
       await delay(quote_delay);
-      quote.textContent += letter;
+      quote_elem.textContent += letter;
     }
 
-    quote.textContent += "\"";
+    quote_elem.textContent += "\"";
   }
 
-  if (author) {
-    author.classList.add("active");
-    author.textContent = "- ";
+  if (author_elem) {
+    author_elem.classList.add("active");
+    author_elem.textContent = "- ";
 
-    for (const letter of quoteRec.author) {
+    for (const letter of author) {
       await delay(author_delay);
-      author.textContent += letter;
+      author_elem.textContent += letter;
     }
   }
 };
 
+// Retrieves the desired quote and displays it.
 const Quote = () => {
-  
   const hasRendered = React.useRef(false);
-  const query_date = useQueryDate();
+  const query_date: string = useQueryDate();
 
   React.useEffect(() => {
     if (hasRendered.current) {
@@ -55,10 +51,10 @@ const Quote = () => {
     }
     hasRendered.current = true;
 
+    // Retrieves the quote from json file.
     const quote_data = data.filter(item => item.date === query_date);
-    quoteRec = {date: quote_data[0].date, quote: quote_data[0].quote, author: quote_data[0].author};
-
-    displayQuote();
+    
+    displayQuote(quote_data[0].quote, quote_data[0].author);
   });
 
   return (
@@ -68,6 +64,5 @@ const Quote = () => {
     </div>
   )
 };
-
 
 export default Quote;

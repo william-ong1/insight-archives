@@ -11,16 +11,19 @@ interface SubscribePopupProps {
   onClose: () => void;
 }
 
+// Popup for 'Subscribe' button. Allows users to subscribe for quotes to be delivered to their email inboxes.
 const SubscribePopup: React.FC<SubscribePopupProps> = ({ onClose }): JSX.Element => {
 
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
 
+  // Handles input change for the email text box.
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
     setMessage("");
   };
 
+  // Handles enter key press to submit email.
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       if (!isInvalid && email.length !== 0) {
@@ -29,14 +32,19 @@ const SubscribePopup: React.FC<SubscribePopupProps> = ({ onClose }): JSX.Element
     }
   };
 
+  // Handles button press to submit email.
   const handleButtonPress = (e: React.MouseEvent<HTMLImageElement>) => {
     if (!isInvalid && email.length !== 0) {
       setMessage("Subscribed!");
     }
   };
 
-  const validateEmail = (email: string) => email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
+  // Checks whether the email is properly formatted.
+  const validateEmail = (email: string) => {
+    return email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
+  };
 
+  // Checks whether the email is valid.
   const isInvalid = React.useMemo(() => {
     if (email.length === 0) {
       return false;
@@ -50,17 +58,18 @@ const SubscribePopup: React.FC<SubscribePopupProps> = ({ onClose }): JSX.Element
       <div className="popup">
         <Image
         src={closeIcon}
+        width={40}
         alt=""
         onClick={onClose}
         className="cursor-pointer absolute top-5 right-5 hover:scale-[1.2]"
         />
 
         <div className="description"> 
-          Enhance your day with a dose of insight. 
+          Enhance your days with a spark of insight and reflection.
         </div>
 
         <div className="description"> 
-          Enter your email below to receive daily quotes delivered straight to your inbox.
+          Enter your email below to receive the daily quote delivered straight to your inbox.
         </div>
 
         <Input
@@ -77,6 +86,7 @@ const SubscribePopup: React.FC<SubscribePopupProps> = ({ onClose }): JSX.Element
             <Image
               src={rightArrow}
               alt=""
+              width={24}
               onClick={handleButtonPress}
               className="cursor-pointer absolute right-3 hover:scale-[1.2]"
             />

@@ -4,7 +4,7 @@ import { CalendarDate } from "@nextui-org/react";
 import { useSearchParams } from "next/navigation";
 import { today, getLocalTimeZone } from '@internationalized/date';
 
-// TODO: function comment
+// Converts a CalendarDate to a date in YYYY-MM-DD format.
 export const dateToString = (date: CalendarDate): string => {
   const year = date?.year;
   const month = date?.month.toString().padStart(2, '0');
@@ -14,7 +14,8 @@ export const dateToString = (date: CalendarDate): string => {
 };
 
 
-// TODO: function comment
+// Returns the queried date in YYYY-MM-DD format if applicable.
+// Otherwise, returns the current date in YYYY-MM-DD format.
 export const useQueryDate = (): string => {
   const searchParams = useSearchParams();
   const date_query = searchParams.get('date');

@@ -12,13 +12,13 @@ export default function Home() {
       </header>
       
       <main className="content">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>...</div>}>
           <Quote/>
         </Suspense>
       </main>
 
       <footer className="footer">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>...</div>}>
           <Footer />
         </Suspense>
       </footer>

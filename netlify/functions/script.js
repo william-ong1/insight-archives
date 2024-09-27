@@ -1,25 +1,43 @@
+/* 
+Script that uses the Gemini API to retrieve a quote and its author, then adds it to the static file of quotes in the GitHub repo.
+Netlify automatically deploys the updated repo, allowing the site to display the most updated content.
+Script is called at midnight PST through Netlify's serverless functions and cron jobs.
+*/
+
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
+// Script that is called. Requires a special key during the function call to update the quotes, limiting authorized users. 
+exports.handler = async (event, context) => {
+  const key = event.path.split('/').pop()
+  if (key === process.env.ACCESS_KEY) {
+    await generateQuote();
+    await updateQuoteFile();
+    return {
+      statusCode: 200,
+      body: JSON.stringify("Successfully updated quotes"),
+    };
+  }
+
+  return {
+    statusCode: 500,
+    body: JSON.stringify("Incorrect key"),
+  };
+};
+
+// Information to access GitHub file.
 const owner = 'william-ong1';
 const repo = 'insight-archives';
-const path = 'data/data.json';
+const path = 'data/quotes.json';
 const branch = 'auto-updated-quotes';
 
+// Stores the new quote's information.
 let newQuote = {
   "date": new Date().toISOString().split('T')[0],
   "quote": "",
   "author": ""
 };
 
-exports.handler = async (event, context) => {
-  await generateQuote();
-  await updateQuoteFile();
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: "Updated quotes"}),
-  };
-};
-
+// Uses Gemini API to retrieve a quote.
 async function generateQuote() {
   try {
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -28,6 +46,7 @@ async function generateQuote() {
     const prompt = "Provide a quote in the format of Quote: [quote] Author: [author]";
     const result = await model.generateContent(prompt);
 
+    // Parses the response and stores the quote and author.
     const response = result.response.text();
     const regex = /Quote:\s*"([^"]*)"\s*Author:\s*(.*)/;
     const match = response.match(regex);
@@ -39,6 +58,7 @@ async function generateQuote() {
   }
 }
 
+// Uses Octokit to update the static quote file on GitHub.
 async function updateQuoteFile() {
   try {
     const { Octokit } = await import("@octokit/rest");
@@ -47,18 +67,21 @@ async function updateQuoteFile() {
       auth: process.env.GITHUB_TOKEN,
     });
 
+    // Retrieves the current content in the file and parses it into a quote array.
     const { data: existingFile } = await octokit.repos.getContent({
       owner,
       repo,
       path,
       ref: branch
     });
-
     const existingContent = Buffer.from(existingFile.content, 'base64').toString('utf-8');
     const quotesArray = JSON.parse(existingContent);
+
+    // Adds the new quote to the array and converts it to a string.
     quotesArray.push(newQuote);
     const updatedContent = JSON.stringify(quotesArray, null, 2);
 
+    // Pushes the file update to the repo.
     const response = await octokit.repos.createOrUpdateFileContents({
       owner,
       repo,
