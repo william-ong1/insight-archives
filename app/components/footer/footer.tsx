@@ -31,7 +31,7 @@ const Footer = (): JSX.Element => {
         <ArchivePopup
           onClose={handleClosePopup}
       />)}
-      <button onClick={handleSubscribe} > Subscribe </button> | <button onClick={handleArchive}> View Archive </button>   
+      <button onClick={handleSubscribe} > Subscribe </button> | <button onClick={handleArchive}> View Archive </button> 
     </div>
   );
 };
