@@ -22,7 +22,7 @@
   font-weight: 700;
   font-size: 3.5em;
   line-height: 0.8em;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .title {
@@ -41,29 +41,6 @@
   position: relative;
   right: .5rem;
 }
-
-
-/* .header {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Cinzel', sans-serif;
-  font-weight: bold;
-  font-size: 3.5em;
-  line-height: 0.8em;
-  margin-top: 1rem;
-}
-
-.insight {
-  position: relative;
-  right: 4rem;
-}
-
-.archives {
-  position: relative;
-  left: 4rem;
-} */
 
 .content {
   display: flex;
