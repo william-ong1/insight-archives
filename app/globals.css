@@ -6,3 +6,66 @@ body {
   color: #ffffff;
   background: #000000;
 }
+
+/* Quote/author styles */
+.quote, .author {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  text-shadow: 3px 3px 6px rgba(163, 131, 131, 0.8);
+}
+
+.quote.active, .author.active {
+  opacity: 1;
+}
+
+/* General popup styles */
+.popup-size {
+  height: 25em;
+  width: 35em;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+/* Archive Popup styles */
+.custom-calendar {
+  font-family: 'Cinzel', sans-serif;
+  border-radius: 35px;
+  background-color: white;
+}
+
+.calendar-width {
+  width: 16em;
+}
+
+.time-travel-button {
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  width: auto;
+  font-family: 'Cinzel', sans-serif;
+}
+
+.time-travel-button:hover {
+  transform: scale(1.1);
+}

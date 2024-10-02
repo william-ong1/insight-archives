@@ -6,7 +6,6 @@ import { Calendar, CalendarDate } from "@nextui-org/react";
 import { parseDate, today, getLocalTimeZone } from '@internationalized/date';
 import { dateToString, useQueryDate } from '@/app/utils/utilities';
 import closeIcon from '../../images/close-icon.svg';
-import './popup.css';
 
 interface ArchivePopupProps {
   onClose: () => void;
@@ -38,9 +37,9 @@ const ArchivePopup: React.FC<ArchivePopupProps> = ({ onClose }): JSX.Element => 
   };
 
   return (
-    <div className="overlay fade-in">
-      <div className="popup archive-popup">
-        <Image
+    <div className="fixed inset-0 flex justify-center items-center z-50 fade-in">
+      <div className="bg-carbon p-8 flex flex-col items-center justify-center gap-8 relative rounded-3xl leading-10 popup-size">
+      <Image
         src={closeIcon}
         width={40}
         alt=""
@@ -51,16 +50,16 @@ const ArchivePopup: React.FC<ArchivePopupProps> = ({ onClose }): JSX.Element => 
         <Calendar
           className="custom-calendar"
           classNames={{
-            content: "calendar-width",
+            content: "calendar-width  bg-white",
             base: "calendar-width text-black",
-            title: "text-3xl",
-            prevButton: "text-3xl",
-            nextButton: "text-3xl",
-            headerWrapper: "calendar-width mt-4",
+            title: "text-2xl",
+            prevButton: "text-2xl",
+            nextButton: "text-2xl",
+            headerWrapper: "calendar-width mt-",
             gridWrapper: "calendar-width",
-            gridHeader: "p-2",
-            gridHeaderCell: "text-3xl px-6",
-            cell: "text-3xl p-2 rounded-xl",
+            gridHeader: "p-1",
+            gridHeaderCell: "text-2xl px-5",
+            cell: "text-2xl p-1 rounded-xl",
             cellButton: "data-[selected=true]:bg-blue-300 data-[selected=true]:text-blue-800 data-[hover=true]:bg-blue-200 data-[hover=true]:text-blue-600 data-[selected=true]:data-[hover=true]:bg-blue-300 data-[selected=true]:data-[hover=true]:text-blue-800 rounded-xl"
 
           }}

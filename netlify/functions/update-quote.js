@@ -43,7 +43,7 @@ async function generateQuote() {
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = "Provide a quote in the format of Quote: [quote] Author: [author]";
+    const prompt = "Provide a new quote in the format of Quote: [quote] Author: [author]";
     const result = await model.generateContent(prompt);
 
     // Parses the response and stores the quote and author.

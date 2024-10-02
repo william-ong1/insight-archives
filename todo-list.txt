@@ -1,0 +1,13 @@
+Subscribe Popup:
+  1. email validation
+  2. email subscription service
+      a. unsubscribe service
+
+
+Main:
+  1. daily updated quotes using gemini api
+  2. align author to right side of quote
+
+
+Potential improvements:
+  1. option to change from normal dark mode to a daily picture of something scenic

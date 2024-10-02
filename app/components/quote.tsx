@@ -3,7 +3,6 @@
 import React from "react";
 import { useQueryDate } from '@/app/utils/utilities';
 import data from '../../data/quotes.json';
-import './quote.css';
 
 // Function to delay code execution.
 const delay = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms));
@@ -59,8 +58,8 @@ const Quote = () => {
 
   return (
     <div>
-      <p className="quote" id="quote"> </p>
-      <p className="author" id="author"> </p>
+      <p className="quote text-2xl lg:text-5xl leading-normal" id="quote"> </p>
+      <p className="author relative text-right text-xl lg:text-3xl right-4" id="author"> </p>
     </div>
   )
 };
