@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { Input } from '@nextui-org/react';
 import closeIcon from '../../images/close-icon.svg';
 import rightArrow from '../../images/right-arrow.svg';
-import './popup.css';
 
 interface SubscribePopupProps {
   onClose: () => void;
@@ -54,8 +53,8 @@ const SubscribePopup: React.FC<SubscribePopupProps> = ({ onClose }): JSX.Element
   }, [email]);
 
   return (
-    <div className="overlay fade-in">
-      <div className="popup">
+    <div className="fixed inset-0 flex justify-center items-center z-50 fade-in">
+      <div className="bg-carbon p-20 flex flex-col items-start gap-12 relative rounded-3xl leading-10 popup-size">
         <Image
         src={closeIcon}
         width={40}
@@ -64,11 +63,11 @@ const SubscribePopup: React.FC<SubscribePopupProps> = ({ onClose }): JSX.Element
         className="cursor-pointer absolute top-5 right-5 hover:scale-[1.2]"
         />
 
-        <div className="description"> 
+        <div className="font-libre text-left text-3xl font-thin"> 
           Enhance your days with a spark of insight and reflection.
         </div>
 
-        <div className="description"> 
+        <div className="font-libre text-left text-3xl font-thin"> 
           Enter your email below to receive the daily quote delivered straight to your inbox.
         </div>
 
