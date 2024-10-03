@@ -1,10 +1,20 @@
 /* 
 Script that uses the Gemini API to retrieve a quote and its author, then adds it to the static file of quotes in the GitHub repo.
+Script also sends the new quote to subscribed users.
 Netlify automatically deploys the updated repo, allowing the site to display the most updated content.
 Script is called at midnight PST through Netlify's serverless functions and cron jobs.
 */
 
+// require('dotenv').config()
+
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const { MongoClient } = require("mongodb");
+const sgMail = require('@sendgrid/mail')
+
+const uri = process.env.MONGODB_URI;
+const client = new MongoClient(uri);
+
+let emails = [];
 
 // Script that is called. Requires a special key during the function call to update the quotes, limiting authorized users. 
 exports.handler = async (event, context) => {
@@ -12,9 +22,12 @@ exports.handler = async (event, context) => {
   if (key === process.env.ACCESS_KEY) {
     await generateQuote();
     await updateQuoteFile();
+    await getEmails();
+    await sendEmails();
+
     return {
       statusCode: 200,
-      body: JSON.stringify("Successfully updated quotes"),
+      body: JSON.stringify("Successfully updated quote and emailed mailing list"),
     };
   }
 
@@ -95,4 +108,35 @@ async function updateQuoteFile() {
   } catch (error) {
     console.error('Error updating file: ', error);
   }
+}
+
+// Retrieves the mailing list stored in MongoDB.
+async function getEmails() {
+  try {
+    await client.connect();
+
+    const db = client.db("mailing-list");
+    const coll = db.collection("emails");
+
+    const docs = await coll.find().toArray()
+
+    for (entry of docs) {
+      emails.push(entry.email);
+    }
+  } finally {
+    await client.close();
+  }
+}
+
+// Sends the new quote using SendGrid API.
+async function sendEmails() {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  const msg = {
+    to: emails,
+    from: 'insightarchivesquote@gmail.com',
+    subject: 'Quote Quest: Discover Today’s Insight!',
+    text: `Today's insight: \"${newQuote.quote}\" - ${newQuote.author}`,
+    html: `Today's insight: \"${newQuote.quote}\" - ${newQuote.author}`,
+  }
+  sgMail.send(msg);
 }
