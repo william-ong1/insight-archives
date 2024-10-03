@@ -27,6 +27,7 @@ const SubscribePopup: React.FC<SubscribePopupProps> = ({ onClose }): JSX.Element
     if (e.key === 'Enter') {
       if (!isInvalid && email.length !== 0) {
         setMessage("Subscribed!");
+        fetch(`/.netlify/functions/add-email?email=${encodeURIComponent(email)}`);
       }
     }
   };
@@ -35,6 +36,7 @@ const SubscribePopup: React.FC<SubscribePopupProps> = ({ onClose }): JSX.Element
   const handleButtonPress = (e: React.MouseEvent<HTMLImageElement>) => {
     if (!isInvalid && email.length !== 0) {
       setMessage("Subscribed!");
+      fetch(`/.netlify/functions/add-email?email=${encodeURIComponent(email)}`);
     }
   };
 
